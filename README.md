@@ -1,73 +1,80 @@
-# React + TypeScript + Vite
+# CrossPost – Chrome Extension (Manifest V3)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CrossPost is a Chrome extension built using Manifest V3, React, and TypeScript.  
+It allows users to select text on a webpage, preview it inside the extension popup, and post it across different platforms.
 
-Currently, two official plugins are available:
+This project is currently under active development.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Select text on any webpage
+- Automatically preview selected text in the popup
+- Foundation for posting content across multiple platforms
+- Built with React and TypeScript
+- Uses Chrome Extension Manifest V3
+- Clean popup UI
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## How it works
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- A content script runs on webpages and tracks selected text
+- When the extension popup opens, it requests the cached selection
+- The popup displays the selected text
+- Posting logic will be added in upcoming versions
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Tech Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Chrome Extension (Manifest V3)
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## Project Structure
+
+crosspost/
+├── extension/
+│ ├── manifest.json
+│ ├── content/
+│ │ └── index.js
+│ └── background/
+│ └── index.js
+├── src/
+│ ├── App.tsx
+│ ├── main.tsx
+│ └── index.css
+├── vite.config.ts
+└── package.json
+
+---
+
+## Development
+
+Install dependencies:
+
+```bash
+npm install
+npm run build
+chrome://extensions → Load unpacked
+
+Limitations
+
+Content scripts cannot run on Chrome internal pages
+
+Roadmap
+
+Add platform integrations (X, LinkedIn, others)
+
+Inject side panel UI for richer interactions
+
+Store drafts and selections
+
+Add authentication for platforms
