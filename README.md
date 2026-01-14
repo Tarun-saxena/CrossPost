@@ -39,7 +39,7 @@ This project is currently under active development.
 ---
 
 ## Project Structure
-
+```bash
 crosspost/
 ├── extension/
 │ ├── manifest.json
@@ -65,11 +65,11 @@ npm install
 npm run build
 chrome://extensions → Load unpacked
 
-Limitations
-
+```
+Limitations--
 Content scripts cannot run on Chrome internal pages
 
-Roadmap
+Roadmap--
 
 Add platform integrations (X, LinkedIn, others)
 
