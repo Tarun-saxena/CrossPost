@@ -1,80 +1,83 @@
-# CrossPost – Chrome Extension (Manifest V3)
+CrossPost – Chrome Extension (Manifest V3)
 
-CrossPost is a Chrome extension built using Manifest V3, React, and TypeScript.  
-It allows users to select text on a webpage, preview it inside the extension popup, and post it across different platforms.
+CrossPost is a Chrome extension built using Manifest V3, React, and TypeScript.
+It allows users to select text on a webpage and preview it inside the extension popup.
 
-This project is currently under active development.
+This project is currently under active development, with plans to add cross-posting features in future versions.
 
----
+Features
 
-## Features
+Select text on any webpage
 
-- Select text on any webpage
-- Automatically preview selected text in the popup
-- Foundation for posting content across multiple platforms
-- Built with React and TypeScript
-- Uses Chrome Extension Manifest V3
-- Clean popup UI
+Automatically preview selected text in the popup
 
----
+Clean and simple popup UI
 
-## How it works
+Built with React and TypeScript
 
-- A content script runs on webpages and tracks selected text
-- When the extension popup opens, it requests the cached selection
-- The popup displays the selected text
-- Posting logic will be added in upcoming versions
+Uses Chrome Extension Manifest V3
 
+How it works
 
----
+A content script runs on webpages and tracks user-selected text
 
-## Tech Stack
+When the extension popup opens, it requests the cached selection
 
-- Chrome Extension (Manifest V3)
-- React
-- TypeScript
-- Vite
-- Tailwind CSS
+The popup displays the selected text
 
----
+Cross-posting and platform integrations will be implemented in future updates.
 
-## Project Structure
-```bash
+Tech Stack
+
+Chrome Extension (Manifest V3)
+
+React
+
+TypeScript
+
+Vite
+
+Tailwind CSS
+
+Project Structure
 crosspost/
 ├── extension/
-│ ├── manifest.json
-│ ├── content/
-│ │ └── index.js
-│ └── background/
-│ └── index.js
+│   ├── manifest.json
+│   ├── content/
+│   │   └── index.js
+│   └── background/
+│       └── index.js
 ├── src/
-│ ├── App.tsx
-│ ├── main.tsx
-│ └── index.css
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
 ├── vite.config.ts
 └── package.json
 
----
+Development
 
-## Development
+Install dependencies and build the project:
 
-Install dependencies:
-
-```bash
 npm install
 npm run build
-chrome://extensions → Load unpacked
 
-```
-Limitations--
-Content scripts cannot run on Chrome internal pages
 
-Roadmap--
+Load the extension via:
 
-Add platform integrations (X, LinkedIn, others)
+chrome://extensions → Enable Developer Mode → Load unpacked
+
+Limitations
+
+Content scripts cannot run on Chrome internal pages (chrome://, chrome-extension://)
+
+Some websites restrict script injection
+
+Roadmap
+
+Add cross-posting support for platforms like X and LinkedIn
 
 Inject side panel UI for richer interactions
 
 Store drafts and selections
 
-Add authentication for platforms
+Add authentication for platform integrations
